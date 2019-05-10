@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeSeriesImportRun xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://fews.wldelft.nl/schemas/version1.0/timeSeriesImportRun.xsd">
+   <import>
+       <general>
+           <importType>NETCDF-CF_TIMESERIES</importType>
+           <folder>$IMPORT_FOLDER_ROOT$/nwm/</folder>
+           <failedFolder>$IMPORT_FAILED_FOLDER$</failedFolder>
+           <backupFolder>$IMPORT_BACKUP_FOLDER$</backupFolder>
+           <idMapId>IdImportNWM</idMapId>
+       </general>
+       <timeSeriesSet>
+           <1--<moduleInstanceId>ImportNetcdf_Timeseries</moduleInstanceId>-->
+<moduleInstanceId>ImportNWM</moduleInstance>
+           <valueType>scalar</valueType>
+           <parameterId>QSIN</parameterId>
+           <locationSetId>NWM</locationSetId>
+           <timeSeriesType>external historical</timeSeriesType>
+           <timeStep unit="minute" multiplier="15"/>
+           <readWriteMode>add originals</readWriteMode>
+       </timeSeriesSet>
+   </import>
+</timeSeriesImportRun>
