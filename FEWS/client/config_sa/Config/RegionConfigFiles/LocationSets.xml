@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locationSets version="1.1" xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://chps1/schemas/locationSets.xsd">
+
+    <locationSet id="USGS">
+        <description>USGS above Little Falls</description>
+        <sortByName>true</sortByName>
+        <esriShapeFile>
+            <file>USGS_Sites_abv_LittleFalls.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%SITE_NO%</id>
+            <name>%STATION_NM%</name> 
+            <x>%LON_SITE%</x>
+            <y>%LAT_SITE%</y>
+            <attribute id="Active">
+                <text>%Active%</text>
+            </attribute>
+            <attribute id="Phase5">
+                <text>%Phase5%</text>
+            </attribute>
+            <attribute id="Flow_HiLim">
+                <description>High validation limit for flow</description>
+                <number>%MAX%</number>
+            </attribute>
+
+        </esriShapeFile>    
+    </locationSet>
+
+<!--Set constraints on ActiveUSGS gauges to only include stations that are active and used in
+Phase 5 HSPF model.  The fields "Active" and "Phase5" within the USGS shapefile
+identify these locations with the label "YES"...these fields within the shapefile can be
+updated if more locations are added to model or updated to active status-->
+
+    <locationSet id="NWM">
+        <description>idunno</description>
+        <sortByName>true</sortByName>
+        <esriShapeFile>
+            <file>nwm.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%HEFS_ID%</id>
+            <name>%STATION_NM%</name>
+            <x>%LON_SITE%</x>
+            <y>%LAT_SITE%</y>
+        </esriShapeFile>
+        <!--locationId>PORM2TOT</locationId>
+        <locationId>BRKM2TOT</locationId-->
+    </locationSet>
+
+    <locationSet id="HEFS">
+        <description>idunno</description>
+        <sortByName>true</sortByName>
+        <esriShapeFile>
+            <file>hefs_points.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%HEFS_ID%</id>
+            <name>%STATION_NM%</name>
+            <x>%LON_SITE%</x>
+            <y>%LAT_SITE%</y>
+        </esriShapeFile>
+        <!--locationId>PORM2TOT</locationId>
+        <locationId>BRKM2TOT</locationId-->
+    </locationSet>
+    
+
+
+
+    <locationSet id="ActiveUSGS">
+        <description>USGS gauges that are Active and in Phase 5 Model</description>
+        <locationSetId>USGS</locationSetId>
+        <constraints>
+            <attributeTextEquals id="Active" equals="YES"/>
+            <attributeTextEquals id="Phase5" equals="YES"/>
+        </constraints>
+    </locationSet>
+
+
+     <locationSet id="HADS">
+        <description>HADS Sites above Little Falls</description>
+        <sortByName>true</sortByName>
+        <esriShapeFile>
+            <file>HADS_Sites_abv_LittleFalls.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%NESDIS%</id>
+            <name>%LOCATION%</name>
+            <x>%Long%</x>
+            <y>%Lat%</y>
+        </esriShapeFile>
+    </locationSet>
+
+    <locationSet id="LandSegments">
+        <esriShapeFile>
+            <file>LFFS_P5_LSEGS_wgs84.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%FIPSAB%</id>
+            <name>%FIPSAB%</name>
+            <x>%Cent_Long%</x>
+            <y>%Cent_Lat%</y>
+            <attribute id ="weight">
+                <number>%Wght%</number>
+            </attribute>
+
+        </esriShapeFile>
+     </locationSet>
+     <locationSet id="RSEG">
+        <esriShapeFile>
+            <file>RSEG_points.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%CATCODE2%</id>
+            <name>%CATCODE2%</name>
+            <x>%Lon%</x>
+            <y>%Lat%</y>
+            <attribute id="Type">
+                <text>%Type%</text>
+            </attribute>
+        </esriShapeFile>
+     </locationSet>
+     <locationSet id="RiverSegments">
+        <description>Actual River Segments in Model</description>
+        <locationSetId>RSEG</locationSetId>
+        <constraints>
+            <attributeTextEquals id="Type" equals="rseg"/>
+        </constraints>
+    </locationSet>
+    <locationSet id="Seg0003">
+        <description>Not Actual River Segments but defined at key locations (end in _0003)</description>
+        <locationSetId>RSEG</locationSetId>
+        <constraints>
+            <attributeTextEquals id="Type" equals="_0003"/>
+        </constraints>
+    </locationSet>
+
+     <locationSet id="PointSource">
+        <esriShapeFile>
+            <file>PS_Locations.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%ID%</id>
+            <name>%Descriptio%</name>
+            <x>%LON%</x>
+            <y>%LAT%</y>
+        </esriShapeFile>
+     </locationSet>
+
+<!--     Diversion locations already defined in RiverSegments.
+     These are still unique time series based on DIV parameter
+     but had to define "DIV_" since FEWS does not allow same ID's
+     from different location sets-->
+
+     <locationSet id="Diversions">
+        <esriShapeFile>
+            <file>DIV_Locations.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>DIV_%ID%</id>
+            <name>%Descriptio%</name>
+            <x>%LON%</x>
+            <y>%LAT%</y>
+        </esriShapeFile>
+     </locationSet>
+
+
+    <locationSet id="Watershed">
+        <esriShapeFile>
+            <file>LSEG_MASK.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%FIPSAB%</id>
+            <name>%FIPSAB%</name>
+            <x>%Cent_Long%</x>
+            <y>%Cent_Lat%</y>
+        </esriShapeFile>
+     </locationSet>
+     
+     <locationSet id="HUC8Plus">
+        <esriShapeFile>
+            <file>Potomac_huc8_wgs84.shp</file>
+            <geoDatum>WGS 1984</geoDatum>
+            <id>%HUC8_plus%</id>
+            <name>%HUC8_plus%</name>
+        </esriShapeFile>
+     </locationSet>
+     
+</locationSets>

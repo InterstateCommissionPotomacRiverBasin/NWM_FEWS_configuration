@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<idMap version="1.1" xmlns="http://www.wldelft.nl/fews"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.wldelft.nl/fews
+<idMap version="1.1" xmlns="http://www.wldelft.nl/fews" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://www.wldelft.nl/fews 
 http://fews.wldelft.nl/schemas/version1.0/idMap.xsd">
+    
 
-   <!--This needs to be updated to represent actual configuration-->
    <parameter internal="SQIN" external="streamflow"/>
-   <!--NWM-->
-   <location internal= "BRKM2TOT" external= "4507344"/>
-   <!--<location internal="DMTak_1001" external="1001"/>
-   <location internal="DMTak_1002" external="1002"/>
+   
+   <location internal= "PR" external= "101"/>
+   <location internal= "LF" external= "179"/>
+   
+   <!-- <location internal="DMTak_1002" external="1002"/>
    <location internal="DMTak_1003" external="1003"/>
    <location internal="DMTak_1004" external="1004"/>
    <location internal="DMTak_1006" external="1006"/>
@@ -17,6 +18,6 @@ http://fews.wldelft.nl/schemas/version1.0/idMap.xsd">
    <location internal="DMTak_6113" external="6113"/>
    <location internal="DMTak_6114" external="6114"/>
    <location internal="DMTak_6115" external="6115"/>-->
-
+   
    <!--<enableOneToOneMapping/>-->
 </idMap>

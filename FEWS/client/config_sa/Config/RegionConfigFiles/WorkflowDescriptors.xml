@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by ICT (Stichting Deltares) -->
+<workflowDescriptors xmlns="http://www.wldelft.nl/fews" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.wldelft.nl/fews http://schemas/workflowDescriptors.xsd"
+    version="1.0"
+>
+
+<!--    Run All Workflows-->
+        <workflowDescriptor id="Run_All" name="Run All Workflows" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Run all of the following workflows</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+
+<!--    Retrieve External Data-->
+    	<workflowDescriptor id="ConnectUSGS_Streamflow" name="Retrieve USGS Streamflow from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve data for USGS stations, convert to CSV and save to import directory</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectUSGS_Stage" name="Retrieve USGS Stage from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve data for USGS stations, convert to CSV and save to import directory</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectHADS" name="Retrieve HADS data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve data for HADS sites, convert to CSV and save to import directory</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectHEFS" name="Retrieve HEFS data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve ensemlbe data ... and save to import directory</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectPSandDIV" name="Retrieve Point Source and Diversion Data" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve Point Source and Diversion data, convert to CSV and save to import directories</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectNLDAS" name="Retrieve NLDAS data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve NLDAS data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectMARFC_MPE" name="Retrieve MARFC MPE data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve MARFC MPE data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectNSSL" name="Retrieve NSSL data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve NSSL data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectMARFC_QPF" name="Retrieve MARFC QPF data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve MARFC QPF data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectNDFD" name="Retrieve NDFD data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve NDFD data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectWPC" name="Retrieve WPC data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve WPC data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectGEFS" name="Retrieve GEFS data from web" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve GEFS data in grib format</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+	<!-- Import and pre-process workflows -->
+	<workflowDescriptor id="ImportScalars" name="ImportScalars" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Import the scalar time series from the Import directory and delete the files after importing</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ImportHEFS" name="ImportHEFS" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Import the HEFS files from the Import directory and delete the files after importing</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ImportNWM" name="ImportNWM" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Import the NWM files from the Import directory and delete the files after importing</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+	<workflowDescriptor id="ImportGrids" name="ImportGrids" forecast="false" allowApprove="false" visible="true">
+		<description>Import the gridded time series from the Import directory and delete the files after importing</description>
+	</workflowDescriptor>
+	<workflowDescriptor id="Preprocess" name="Preprocess" forecast="false" allowApprove="true" autoApprove="true" visible="true">
+		<description>Run preprocessors and set time of last observed data</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="MergeArealTS" name="MergeArealTS" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Run preprocessors and set time of last observed data</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ExportTS" name="Export Time Series" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Run preprocessors and set time of last observed data</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+
+<!--        External Processes-->
+
+        <workflowDescriptor id="PublishPrecip" name="Publish Precip" forecast="false" allowApprove="false" visible="true">
+		<description>Publish precip csv to google sheet</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+        </workflowDescriptor>
+        <workflowDescriptor id="UpdateWDMs" name="Update WDM files" forecast="false" allowApprove="false" visible="true">
+		<description>Run fortran to update WDM files</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="RunHSPF" name="Run HSPF Model" forecast="false" allowApprove="false" visible="true">
+		<description>Run HSPF model</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+<!--        Added by CS Dec 2015:-->
+        <workflowDescriptor id="RunFailNotif" name="Check that P5 ran" forecast="false" allowApprove="false" visible="true">
+		<description>Run bash script to send email if P5 fails to produce expected output files</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+        </workflowDescriptor>
+
+<!--    Retrieve Time Series from HSPF Simulation-->
+    	<workflowDescriptor id="ConnectHSPF_simFlow" name="Retrieve HSPF Simulated Flow" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve HSPF simulated flows from pltgen files and create .csv for import</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+        <workflowDescriptor id="ConnectHSPF_stateVar" name="Retrieve HSPF State Variables" forecast="false" allowApprove="false" visible="true">
+		<description>Run python script to retrieve HSPF state variables by applying land use weighted average to pltgen files and creating .csv for import</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+
+<!--    Import Time Series from HSPF Simulation-->
+        <workflowDescriptor id="ImportHSPF_TimeSeries" name="Import HSPF Time Series" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Import simulated flow and state variables from HSPF simulation</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor>
+<!--    Export Flow Time Series from HSPF Simulation-->
+        <!--workflowDescriptor id="ExportSQINtoCSV" name="Export HSPF Flow Time Series" forecast="true" allowApprove="true" autoApprove="true" visible="true">
+		<description>Export simulated flow from HSPF simulation</description>
+		<runExpiryTime unit="day" multiplier="100"/>
+	</workflowDescriptor-->
+        
+<!--	 System management workflows -->
+        <workflowDescriptor id="RollingBarrel" forecast="false" visible="false">
+		<description>Performs the rolling barrel on a forecasting shell</description>
+	</workflowDescriptor>
+
+
+</workflowDescriptors>

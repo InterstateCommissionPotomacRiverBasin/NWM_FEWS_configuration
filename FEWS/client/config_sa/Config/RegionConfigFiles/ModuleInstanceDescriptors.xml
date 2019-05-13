@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by ICT (Stichting Deltares) -->
+<moduleInstanceDescriptors xmlns="http://www.wldelft.nl/fews" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.wldelft.nl/fews http://schemas/moduleInstanceDescriptors.xsd"
+    version="1.0"
+>
+<!--    Retrieve External Data-->
+        <moduleInstanceDescriptor id="ConnectUSGS_Streamflow">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectUSGS_Stage">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectHADS">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectHEFS">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectNLDAS">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectMARFC_MPE">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectNSSL">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectNDFD">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectWPC">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectMARFC_QPF">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectGEFS">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectPSandDIV">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectHSPF_simFlow">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ConnectHSPF_stateVar">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+
+<!--        Import Modules-->
+<!--            Import Scalars-->
+        <moduleInstanceDescriptor id="ImportUSGS_StreamflowRaw">
+		<description>Imports Raw USGS Streamflow</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportUSGS_StageRaw">
+		<description>Imports Raw USGS Stage</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportHADS_Raw">
+		<description>Imports Raw HADS Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportHEFS">
+		<description>Imports HEFS Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportNWM">
+		<description>Imports NWM Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportPointSource">
+		<description>Imports Point Source Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportDiversions">
+		<description>Imports Diversion Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportHSPF_simFlow">
+		<description>Imports HSPF simulated Flow</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportHSPF_stateVar">
+		<description>Imports HSPF simulated Flow</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+<!--                Import Grids-->
+        <moduleInstanceDescriptor id="ImportNLDAS">
+		<description>Imports NLDAS Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportMARFC_MPE">
+		<description>Imports MARFC Observed Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportNSSL">
+		<description>Imports NSSL Gridded Precip</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportMARFC_QPF">
+		<description>Imports MARFC Forecast Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportNDFD">
+		<description>Imports NDFD Forecast Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportNDFD_4-7">
+		<description>Imports NDFD Forecast Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportWPC">
+		<description>Imports WPC Forecast Gridded Precip</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportGEFS">
+		<description>Imports GEFS Forecast Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="ImportGFS">
+		<description>Imports GFS Forecast Gridded Data</description>
+		<moduleId>TimeSeriesImportRun</moduleId>
+	</moduleInstanceDescriptor>
+
+<!--Preprocess Grids and Scalar Imports-->
+        <moduleInstanceDescriptor id="RawHADS_Accum_to_Incremental1Hr">
+		<description>Converts Accumulated Precip to Incremental</description>
+                <moduleId>TransformationModule</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="HADS_Processed">
+		<description>Imports Processed HADS Data</description>
+                <moduleId>TransformationModule</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="USGS_Original">
+		<description>Merges Raw with Original USGS data</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="USGS_Processed">
+		<description>Processes USGS data (QC validation, fill missing)</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="LukeProcessed">
+		<description>Combine USGS Luke flow with PS</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="USGS_to1Hr">
+		<description>Converts USGS_Processed (15 min) to 1 Hr TS</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="SumDiversions">
+		<description>Sum the Diversions for Plotting</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="0003_Flows">
+		<description>Creates RSEG flow at Point of Rocks and Monocacy at Jug Br</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="TotalAvgStateVar">
+		<description>Creates total average state variable TS for entire watershed</description>
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+
+	<moduleInstanceDescriptor id="MAP_HADS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAP_NLDAS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAP_MARFC_MPE">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MASP_MARFC_MPE">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAP_NSSL">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAP_MARFC_QPF">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAP_NDFD">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAP_WPC">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAP_GEFS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        
+	<moduleInstanceDescriptor id="MAT_HADS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAT_NLDAS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAT_NDFD">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAT_NDFD_4-7">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAT_GEFS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+
+	<moduleInstanceDescriptor id="MAUS_HADS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAUS_NLDAS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAUS_NDFD">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAUS_NDFD_4-7">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMAUS_GEFS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+
+
+        <moduleInstanceDescriptor id="MARW_HADS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MARW_NLDAS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMARW_GEFS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+
+        <moduleInstanceDescriptor id="MARH_NLDAS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MARH_HADS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMARH_NDFD">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMARH_NDFD_4-7">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="FMARH_GEFS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        
+<!--Merge Areal TS        -->
+        <moduleInstanceDescriptor id="MergeMAP_FMAP">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAP_FMAP_daily">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MergeMAT_FMAT">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MAT_FMAT_daily">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MergeMAUS_FMAUS">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MergeMARW_FMARW">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="MergeMARH_FMARH">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+
+<!--Calculations from Merged Areal TS        -->
+        <moduleInstanceDescriptor id="Calc_DP_Temp">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Calc_PET">
+		<moduleId>TransformationModule</moduleId>
+	</moduleInstanceDescriptor>
+
+<!--Export TS for HSPF-->
+        <moduleInstanceDescriptor id="Export_PRCtoCSV">
+		<description>Exports Precipiatation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_MAP_FMAP_dailytoCSV">
+		<description>Exports Daily Precipiatation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_MAT_FMAT_dailytoCSV">
+		<description>Exports Daily Precipiatation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_MARFC_PRCtoCSV">
+		<description>Exports Precipiatation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_HADS_PRCtoCSV">
+		<description>Exports Precipiatation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+         <moduleInstanceDescriptor id="Export_NLDAS_PRCtoCSV">
+		<description>Exports Precipiatation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_TMPtoCSV">
+		<description>Exports Temperature data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_DPTtoCSV">
+		<description>Exports Dew Point Temp data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_PETtoCSV">
+		<description>Exports PET data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_WNDtoCSV">
+		<description>Exports Wind data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_RADtoCSV">
+		<description>Exports Solar Radiation data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_USGStoCSV">
+		<description>Exports USGS data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_PStoCSV">
+		<description>Exports PS data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Export_DIVtoCSV">
+		<description>Exports DIV data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor>
+        <!--moduleInstanceDescriptor id="Export_SQINtoCSV">
+		<description>Exports sim flow data</description>
+		<moduleId>TimeSeriesExportRun</moduleId>
+	</moduleInstanceDescriptor-->
+        <moduleInstanceDescriptor id="Fortran_Txt">
+            <description>Converts exported FEWS csv to Fortran file format</description>
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        
+        <!--Publish precip to google sheet-->
+        <moduleInstanceDescriptor id="Publish_Precip">
+            <description>Publish precip csv to google sheet</description>
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+
+<!--External Processes-->
+        <moduleInstanceDescriptor id="Update_WDMs">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+        <moduleInstanceDescriptor id="Run_HSPF">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+<!--    Added by CS Dec 2015:-->       
+        <moduleInstanceDescriptor id="Run_FailNotif">
+            <moduleId>GeneralAdapter</moduleId>
+        </moduleInstanceDescriptor>
+            
+<!--For Live System-->
+    <moduleInstanceDescriptor id="RollingBarrel">
+        <description>Removes all the rows in the cache files that are no longer in the database. For msaccess the database is also compacted.
+                       Optionally cleans-up the optional warm states blob dir from zip files that have no matching row in the database.</description>
+        <moduleId>RollingBarrel</moduleId>
+    </moduleInstanceDescriptor>
+    <moduleInstanceDescriptor id="MarkedRecordManager">
+        <description>Records pending deletion</description>
+        <moduleId>MarkedRecordManager</moduleId>
+    </moduleInstanceDescriptor>
+		
+</moduleInstanceDescriptors>
